@@ -38,9 +38,7 @@ namespace ctoml {
       static std::unique_ptr<TomlValue> create_array();
 
       template<typename InputIterator>
-      static std::unique_ptr<TomlValue> create_array(InputIterator begin, InputIterator end) {
-         return std::unique_ptr<TomlValue>(new TomlArray(begin, end));
-      }
+      static std::unique_ptr<TomlValue> create_array(InputIterator begin, InputIterator end);
 
       // Equality tests
       virtual bool equals(std::string) const;

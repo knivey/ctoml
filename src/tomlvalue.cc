@@ -32,6 +32,11 @@ std::unique_ptr<TomlValue> TomlValue::create_array() {
    return std::unique_ptr<TomlValue>(new TomlArray());
 }
 
+template<typename InputIterator>
+std::unique_ptr<TomlValue> create_array(InputIterator begin, InputIterator end) {
+  return std::unique_ptr<TomlValue>(new TomlArray(begin, end));
+}
+
 bool TomlValue::equals(std::string) const {
    return type() == TomlType::String;
 }
